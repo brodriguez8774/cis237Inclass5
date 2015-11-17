@@ -36,7 +36,7 @@ namespace cis237inclass5
              * */
 
             // Gets acces to the collection of tables to interact with.
-            CarsBRodriguezEntities carsTestEntities = new CarsBRodriguezEntities();
+            CarsDBEntities carsTestEntities = new CarsDBEntities();
 
             // READ FROM DATABASE.
             Console.WriteLine(Environment.NewLine + Environment.NewLine);

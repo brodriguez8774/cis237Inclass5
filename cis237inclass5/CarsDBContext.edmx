@@ -4,18 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CarsBRodriguezModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'CarsBRodriguez.dbo.Cars' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+      <Schema Namespace="CarsDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cars">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="year" />
-            <PropertyRef Name="make" />
-            <PropertyRef Name="model" />
-            <PropertyRef Name="type" />
-            <PropertyRef Name="horsepower" />
-            <PropertyRef Name="cylinders" />
           </Key>
           <Property Name="id" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="year" Type="nvarchar" MaxLength="50" Nullable="false" />
@@ -25,33 +17,17 @@ warning 6002: The table/view 'CarsBRodriguez.dbo.Cars' does not have a primary k
           <Property Name="horsepower" Type="int" Nullable="false" />
           <Property Name="cylinders" Type="int" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="CarsBRodriguezModelStoreContainer">
-          <EntitySet Name="Cars" EntityType="Self.Cars" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Cars].[id] AS [id], 
-    [Cars].[year] AS [year], 
-    [Cars].[make] AS [make], 
-    [Cars].[model] AS [model], 
-    [Cars].[type] AS [type], 
-    [Cars].[horsepower] AS [horsepower], 
-    [Cars].[cylinders] AS [cylinders]
-    FROM [dbo].[Cars] AS [Cars]</DefiningQuery>
-          </EntitySet>
+        <EntityContainer Name="CarsDBModelStoreContainer">
+          <EntitySet Name="Cars" EntityType="Self.Cars" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="CarsBRodriguezModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="CarsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Car">
           <Key>
             <PropertyRef Name="id" />
-            <PropertyRef Name="year" />
-            <PropertyRef Name="make" />
-            <PropertyRef Name="model" />
-            <PropertyRef Name="type" />
-            <PropertyRef Name="horsepower" />
-            <PropertyRef Name="cylinders" />
           </Key>
           <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
@@ -61,7 +37,7 @@ warning 6002: The table/view 'CarsBRodriguez.dbo.Cars' does not have a primary k
           <Property Name="horsepower" Type="Int32" Nullable="false" />
           <Property Name="cylinders" Type="Int32" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="CarsBRodriguezEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CarsDBEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cars" EntityType="Self.Car" />
         </EntityContainer>
       </Schema>
@@ -69,9 +45,9 @@ warning 6002: The table/view 'CarsBRodriguez.dbo.Cars' does not have a primary k
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CarsBRodriguezModelStoreContainer" CdmEntityContainer="CarsBRodriguezEntities">
+        <EntityContainerMapping StorageEntityContainer="CarsDBModelStoreContainer" CdmEntityContainer="CarsDBEntities">
           <EntitySetMapping Name="Cars">
-            <EntityTypeMapping TypeName="CarsBRodriguezModel.Car">
+            <EntityTypeMapping TypeName="CarsDBModel.Car">
               <MappingFragment StoreEntitySet="Cars">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="year" ColumnName="year" />
